@@ -10,6 +10,8 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="dayjs.min.js"></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -28,8 +30,11 @@
     <header class="p-5 mb-4">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+      <p id="date"></p>
+<button id="generateDate">Generate Date</button>
     </header>
+    <h1>Scheduler</h1>
+   
     <div class="container-fluid px-5">
       <!-- Use class for "past", "present", and "future" to apply styles to the
         time-block divs accordingly. The javascript will need to do this by
@@ -67,13 +72,120 @@
           <i class="fas fa-save" aria-hidden="true"></i>
         </button>
       </div>
+      <div id="hour-12" class="row time-block future">
+        <div class="col-2 col-md-1 hour text-center py-3">12AM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="hour-13" class="row time-block future">
+        <div class="col-2 col-md-1 hour text-center py-3">1PM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="hour-14" class="row time-block future">
+        <div class="col-2 col-md-1 hour text-center py-3">2PM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div id="hour-15" class="row time-block future">
+        <div class="col-2 col-md-1 hour text-center py-3">3PM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+          <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
     </div>
-
+    <div id="hour-16" class="row time-block future">
+      <div class="col-2 col-md-1 hour text-center py-3">4PM</div>
+      <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+      <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+        <i class="fas fa-save" aria-hidden="true"></i>
+      </button>
+  </div>
+  <div id="hour-17" class="row time-block future">
+    <div class="col-2 col-md-1 hour text-center py-3">5PM</div>
+    <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+    <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+      <i class="fas fa-save" aria-hidden="true"></i>
+    </button>
+</div>
+<div id="hour-18" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">6PM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
+<div id="hour-19" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">7PM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
+<div id="hour-20" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">8PM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
+<div id="hour-21" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">9PM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
+<div id="hour-22" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">10PM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
+<div id="hour-23" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">11PM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
+<div id="hour-24" class="row time-block future">
+  <div class="col-2 col-md-1 hour text-center py-3">12AM</div>
+  <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
+  <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+    <i class="fas fa-save" aria-hidden="true"></i>
+  </button>
+</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
     crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+    <script>
+  // Get the current hour using Day.js
+  var currentHour = dayjs().hour();
 
-    <script src="script.js"></script>
+  // Loop through each time block
+  $(".time-block").each(function () {
+    // Get the hour from the time block's ID
+    var hour = parseInt($(this).attr("id").split("-")[1]);
+
+    // Compare the hour to the current hour and add the appropriate class
+    if (hour < currentHour) {
+      $(this).removeClass("present future").addClass("past");
+    } else if (hour === currentHour) {
+      $(this).removeClass("past future").addClass("present");
+    } else {
+      $(this).removeClass("past present").addClass("future");
+    }
+  });
+</script>
   </body>
 </html>
